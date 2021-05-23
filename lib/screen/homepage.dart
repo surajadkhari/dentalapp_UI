@@ -99,7 +99,7 @@ Widget _bodyW() {
                     autofocus: true,
                     style: TextStyle(color: Colors.grey, fontSize: 20),
                     decoration: InputDecoration(
-                        border: InputBorder.none, hintText: "Search"),
+                        border: InputBorder.none, hintText: "Searching"),
                   ),
                 ),
               ),
