@@ -120,6 +120,93 @@ Widget _bodyW() {
               ),
             ],
           ),
+        ),
+
+        Container(
+          margin: EdgeInsets.only(top: 20, left: 20),
+          child: Stack(
+            fit: StackFit.loose,
+            children: [
+              Container(
+                child: Text(
+                  "Category",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 20),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Show All",
+                    style: TextStyle(fontSize: 19),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          color: Colors.transparent,
+          height: 120,
+          margin: EdgeInsets.only(top: 20, left: 20),
+          child: ListView(
+            scrollDirection: Axis.horizontal,
+            children: [
+              demoCategories("images/tooth.png", "Tooth", "10 Doctors"),
+              demoCategories("images/tooth.png", "Tooth", "10 Doctors"),
+              demoCategories("images/tooth.png", "Tooth", "10 Doctors"),
+              demoCategories("images/tooth.png", "Tooth", "10 Doctors"),
+              demoCategories("images/tooth.png", "Tooth", "10 Doctors"),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+//ServiceCatalog design
+Widget demoCategories(String image, String servicename, String drQuantity) {
+  return Container(
+    margin: EdgeInsets.only(right: 10),
+    width: 100,
+    decoration: BoxDecoration(
+      color: Color(0xff107163),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        //Images
+        Container(
+          margin: EdgeInsets.only(top: 10),
+          child: Image.asset(image),
+        ),
+
+        //Service Name
+        Container(
+          margin: EdgeInsets.only(top: 10),
+          child: Text(
+            servicename,
+            style: TextStyle(
+                color: Colors.white, fontSize: 13, fontWeight: FontWeight.w500),
+          ),
+        ),
+
+        //Doctor Q
+        Container(
+          margin: EdgeInsets.only(top: 10),
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: Color(0xffd9fffa).withOpacity(0.07),
+          ),
+          child: Text(
+            drQuantity,
+            style: TextStyle(
+                color: Colors.white, fontSize: 8, fontWeight: FontWeight.w500),
+          ),
         )
       ],
     ),
