@@ -121,7 +121,7 @@ Widget _bodyW() {
             ],
           ),
         ),
-
+        //Catefor
         Container(
           margin: EdgeInsets.only(top: 20, left: 20),
           child: Stack(
@@ -161,6 +161,59 @@ Widget _bodyW() {
             ],
           ),
         ),
+        Container(
+          margin: EdgeInsets.only(top: 20, left: 20),
+          child: Stack(
+            fit: StackFit.loose,
+            children: [
+              Container(
+                child: Text(
+                  "Top rated",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(right: 20),
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    "Show All",
+                    style: TextStyle(fontSize: 19),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        Expanded(
+          child: Container(
+            child: ListView(
+              children: [
+                rateDoctor("images/tooth.png"),
+              ],
+            ),
+          ),
+        )
+      ],
+    ),
+  );
+}
+
+Widget rateDoctor(String doctorImage) {
+  return Container(
+    decoration: BoxDecoration(
+      color: Colors.white,
+    ),
+    height: 90,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      //DOcImages
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 10),
+          child: Image.asset(doctorImage),
+        )
       ],
     ),
   );
