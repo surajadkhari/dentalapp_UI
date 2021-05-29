@@ -168,7 +168,7 @@ Widget _bodyW() {
             children: [
               Container(
                 child: Text(
-                  "Top rated",
+                  "Top rate",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
