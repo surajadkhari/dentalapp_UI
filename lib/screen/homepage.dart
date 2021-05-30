@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -8,7 +10,6 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBarW(),
@@ -161,6 +162,8 @@ Widget _bodyW() {
             ],
           ),
         ),
+
+        //Toprated showall
         Container(
           margin: EdgeInsets.only(top: 20, left: 20),
           child: Stack(
@@ -168,7 +171,7 @@ Widget _bodyW() {
             children: [
               Container(
                 child: Text(
-                  "Top rated",
+                  "Our Expert",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
@@ -186,11 +189,30 @@ Widget _bodyW() {
           ),
         ),
 
+        //Docor Catlog
         Expanded(
           child: Container(
+            margin: EdgeInsets.only(left: 20, right: 20, top: 10),
             child: ListView(
               children: [
-                rateDoctor("images/tooth.png"),
+                rateDoctor(
+                  "images/doctor.png",
+                  "Dr. Narayna MS",
+                  "Oral & MAxillofacial",
+                  "1245-565",
+                ),
+                rateDoctor(
+                  "images/doctor.png",
+                  "Dr. Narayna MS",
+                  "Oral & MAxillofacial",
+                  "1245-565",
+                ),
+                rateDoctor(
+                  "images/doctor.png",
+                  "Dr. Narayna MS",
+                  "Oral & MAxillofacial",
+                  "1245-565",
+                )
               ],
             ),
           ),
@@ -200,20 +222,91 @@ Widget _bodyW() {
   );
 }
 
-Widget rateDoctor(String doctorImage) {
+Widget rateDoctor(String doctorImage, String doctorName, String speciality,
+    String LicenseNum) {
   return Container(
+    margin: EdgeInsets.only(
+      top: 10,
+    ),
     decoration: BoxDecoration(
       color: Colors.white,
     ),
     height: 90,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       //DOcImages
       children: [
         Container(
-          margin: EdgeInsets.only(top: 10),
+          margin: EdgeInsets.only(left: 20),
+          height: 90,
+          width: 50,
           child: Image.asset(doctorImage),
-        )
+        ),
+        //DocDec
+        Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 10, left: 10),
+                child: Text(
+                  doctorName,
+                  style: TextStyle(
+                    color: Color(0xff363636),
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+              //DocSp
+              Container(
+                margin: EdgeInsets.only(top: 10, left: 10),
+                child: Row(
+                  children: [
+                    Container(
+                      child: Text(
+                        speciality,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 40, top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            child: Text(
+                              "License Number",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            margin: EdgeInsets.only(),
+                            child: Text(
+                              LicenseNum,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
       ],
     ),
   );
