@@ -1,7 +1,6 @@
 import 'package:dentalapp_UI/screen/doctordetail.dart';
 import 'package:dentalapp_UI/screen/services.dart';
 import 'package:flutter/material.dart';
-import 'package:dentalapp_UI/screen/item_detail_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,38 +18,6 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color(0xff053F5E),
       appBar: appBarW(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-      ),
-      // appBar: AppBar(
-      //   elevation: 0.0,
-      //   backgroundColor: Color(0xff053F5E),
-      //   centerTitle: true,
-      //   leading: Icon(
-      //     Icons.menu,
-      //     color: Colors.white,
-      //   ),
-      //   actions: [
-      //     GestureDetector(
-      //       child: Container(
-      //         margin: EdgeInsets.only(right: 10),
-      //         child: Icon(
-      //           Icons.notifications_rounded,
-      //           color: Colors.white,
-      //         ),
-      //       ),
-      //     ),
-      //     GestureDetector(
-      //       child: Container(
-      //         margin: EdgeInsets.only(right: 5),
-      //         child: Image.network(
-      //           "https://ichef.bbci.co.uk/news/400/cpsprodpb/18309/production/_109218099_gettyimages-803015182.jpg",
-      //           width: 60,
-      //         ),
-      //       ),
-      //     )
-      //   ],
-      // ),
       body: Container(
         decoration: BoxDecoration(
           color: Colors.grey[100],
@@ -245,22 +212,22 @@ class HomePageState extends State<HomePage> {
                     demoTopRatedDr(
                       "images/doctor.png",
                       "Dr. Fred Mask",
-                      "Heart surgen",
-                      "4.1",
+                      "Oral & MAxillofacial",
+                      "1245-565",
                       "",
                     ),
                     demoTopRatedDr(
                       "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "Dr. Fred Mask",
+                      "Oral & MAxillofacial",
+                      "1245-565",
                       "",
                     ),
                     demoTopRatedDr(
                       "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "Dr. Fred Mask",
+                      "Oral & MAxillofacial",
+                      "1245-565",
                       "",
                     ),
                   ],
@@ -360,8 +327,8 @@ class HomePageState extends State<HomePage> {
     return GestureDetector(
       //page route
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => DoctorDetailPage()));
+        // Navigator.push(context,
+        //     MaterialPageRoute(builder: (context) => DoctorDetailPage()));
       },
       child: Container(
         height: 90,
@@ -412,13 +379,12 @@ class HomePageState extends State<HomePage> {
                           ),
                         ),
                         Container(
-                          margin:
-                              EdgeInsets.only(top: 3, left: size.width * 0.25),
+                          margin: EdgeInsets.only(left: 40, top: 10),
                           child: Row(
                             children: [
                               Container(
                                 child: Text(
-                                  "Rating: ",
+                                  "License: ",
                                   style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 12,
