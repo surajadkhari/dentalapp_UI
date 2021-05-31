@@ -1,4 +1,4 @@
-import 'package:dentalapp_UI/screen/homepage.dart';
+import 'package:dentalapp_UI/screen/home_pagey.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,7 +11,7 @@ class Myapp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Color(0xff053F5E)),
-      home: Homepage(),
+      home: HomePage(),
     );
   }
 }
