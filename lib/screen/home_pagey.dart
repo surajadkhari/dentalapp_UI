@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:dentalapp_UI/screen/item_detail_page.dart';
 
@@ -17,6 +19,9 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color(0xff053F5E),
       appBar: appBarW(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+      ),
       // appBar: AppBar(
       //   elevation: 0.0,
       //   backgroundColor: Color(0xff053F5E),
@@ -203,12 +208,20 @@ class HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(right: 20, top: 1),
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        'See all',
-                        style: TextStyle(
-                          color: Color(0xff5e5d5d),
-                          fontSize: 19,
-                          fontFamily: 'Poppins',
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DoctorDetailPage()));
+                        },
+                        child: Text(
+                          'See all',
+                          style: TextStyle(
+                            color: Color(0xff5e5d5d),
+                            fontSize: 19,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
                     ),
