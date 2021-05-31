@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class ItemDetailPage extends StatefulWidget {
+class DoctorDetailPage extends StatefulWidget {
   @override
-  _ItemDetailPageState createState() => _ItemDetailPageState();
+  _DoctorDetailPageState createState() => _DoctorDetailPageState();
 }
 
-class _ItemDetailPageState extends State<ItemDetailPage> {
+class _DoctorDetailPageState extends State<DoctorDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Theme.of(context).primaryColor),
+      appBar: AppBar(),
     );
   }
 }

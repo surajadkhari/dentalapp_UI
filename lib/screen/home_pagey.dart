@@ -16,46 +16,50 @@ class HomePageState extends State<HomePage> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Color(0xff053F5E),
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Color(0xff053F5E),
-        centerTitle: true,
-        leading: Icon(
-          Icons.menu,
-          color: Colors.white,
-        ),
-        actions: [
-          GestureDetector(
-            child: Container(
-              margin: EdgeInsets.only(right: 10),
-              child: Icon(
-                Icons.notifications_rounded,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          GestureDetector(
-            child: Container(
-              margin: EdgeInsets.only(right: 5),
-              child: Image.network(
-                "https://ichef.bbci.co.uk/news/400/cpsprodpb/18309/production/_109218099_gettyimages-803015182.jpg",
-                width: 60,
-              ),
-            ),
-          )
-        ],
-      ),
+      appBar: appBarW(),
+      // appBar: AppBar(
+      //   elevation: 0.0,
+      //   backgroundColor: Color(0xff053F5E),
+      //   centerTitle: true,
+      //   leading: Icon(
+      //     Icons.menu,
+      //     color: Colors.white,
+      //   ),
+      //   actions: [
+      //     GestureDetector(
+      //       child: Container(
+      //         margin: EdgeInsets.only(right: 10),
+      //         child: Icon(
+      //           Icons.notifications_rounded,
+      //           color: Colors.white,
+      //         ),
+      //       ),
+      //     ),
+      //     GestureDetector(
+      //       child: Container(
+      //         margin: EdgeInsets.only(right: 5),
+      //         child: Image.network(
+      //           "https://ichef.bbci.co.uk/news/400/cpsprodpb/18309/production/_109218099_gettyimages-803015182.jpg",
+      //           width: 60,
+      //         ),
+      //       ),
+      //     )
+      //   ],
+      // ),
       body: Container(
         decoration: BoxDecoration(
-            color: Colors.grey[100],
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(30), topLeft: Radius.circular(30))),
+          color: Colors.grey[100],
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(30),
+            topLeft: Radius.circular(30),
+          ),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Container(
-              margin: EdgeInsets.only(top: 20, left: 20),
+              margin: EdgeInsets.only(top: 5, left: 20),
               child: Text(
                 "Hi, Surat",
                 style: TextStyle(
@@ -66,19 +70,19 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 5, left: 20),
+              margin: EdgeInsets.only(top: 3, left: 20),
               child: Text(
                 "Welcome Back",
                 style: TextStyle(
                   color: Color(0xff363636),
-                  fontSize: 30,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Poppins',
                 ),
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 25, left: 20, right: 20),
+              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
               width: size.width,
               height: 60,
               decoration: BoxDecoration(
@@ -96,7 +100,7 @@ class HomePageState extends State<HomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    flex: 5,
+                    flex: 4,
                     child: Container(
                       margin: EdgeInsets.only(left: 10, right: 10),
                       child: TextField(
@@ -233,13 +237,11 @@ class HomePageState extends State<HomePage> {
                     ),
                     demoTopRatedDr(
                       "images/doctor.png",
-                      "Dr. Zac Wolff",
-                      "Eyes Specialist",
-                      "4.4",
+                      "Dr. Stella Kane",
+                      "Bone Specialist",
+                      "4.2",
                       "",
                     ),
-                    demoTopRatedDr("assets/dr_2.png", "Dr. Fred Mask",
-                        "Heart surgen", "4.3", ""),
                   ],
                 ),
               ),
@@ -247,6 +249,39 @@ class HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+//Appbar Widget
+  Widget appBarW() {
+    return AppBar(
+      elevation: 0.0,
+      backgroundColor: Color(0xff053F5E),
+      centerTitle: true,
+      leading: Icon(
+        Icons.menu,
+        color: Colors.white,
+      ),
+      actions: [
+        GestureDetector(
+          child: Container(
+            margin: EdgeInsets.only(right: 10),
+            child: Icon(
+              Icons.notifications_rounded,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        GestureDetector(
+          child: Container(
+            margin: EdgeInsets.only(right: 5),
+            child: Image.network(
+              "https://ichef.bbci.co.uk/news/400/cpsprodpb/18309/production/_109218099_gettyimages-803015182.jpg",
+              width: 50,
+            ),
+          ),
+        )
+      ],
     );
   }
 
@@ -302,9 +337,10 @@ class HomePageState extends State<HomePage> {
       String rating, String distance) {
     var size = MediaQuery.of(context).size;
     return GestureDetector(
+      //page route
       onTap: () {
-        // Navigator.push(context,
-        //     MaterialPageRoute(builder: (context) => DoctorDetailPage()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => DoctorDetailPage()));
       },
       child: Container(
         height: 90,
