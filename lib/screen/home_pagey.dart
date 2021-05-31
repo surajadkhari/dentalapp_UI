@@ -1,5 +1,5 @@
-import 'dart:html';
-
+import 'package:dentalapp_UI/screen/doctordetail.dart';
+import 'package:dentalapp_UI/screen/services.dart';
 import 'package:flutter/material.dart';
 import 'package:dentalapp_UI/screen/item_detail_page.dart';
 
@@ -148,7 +148,7 @@ class HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     child: Text(
-                      'Category',
+                      'Services',
                       style: TextStyle(
                         color: Color(0xff363636),
                         fontSize: 20,
@@ -161,12 +161,20 @@ class HomePageState extends State<HomePage> {
                     margin: EdgeInsets.only(right: 20, top: 1),
                     child: Align(
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        'See all',
-                        style: TextStyle(
-                          color: Color(0xff5e5d5d),
-                          fontSize: 19,
-                          fontFamily: 'Poppins',
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ServicesDetail()));
+                        },
+                        child: Text(
+                          'See all',
+                          style: TextStyle(
+                            color: Color(0xff5e5d5d),
+                            fontSize: 19,
+                            fontFamily: 'Poppins',
+                          ),
                         ),
                       ),
                     ),
@@ -176,7 +184,7 @@ class HomePageState extends State<HomePage> {
             ),
             Container(
               height: 120,
-              margin: EdgeInsets.only(top: 20, left: 20),
+              margin: EdgeInsets.only(top: 10, left: 20),
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -213,7 +221,7 @@ class HomePageState extends State<HomePage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DoctorDetailPage()));
+                                  builder: (context) => doctorDetail()));
                         },
                         child: Text(
                           'See all',
