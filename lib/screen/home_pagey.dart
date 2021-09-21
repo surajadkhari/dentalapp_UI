@@ -266,6 +266,12 @@ class HomePageState extends State<HomePage> {
         color: Colors.white,
       ),
       actions: [
+        IconButton(
+          onPressed: () {
+            Navigator.pushNamed(context, "/welcomescreen");
+          },
+          icon: Icon(Icons.logout),
+        ),
         GestureDetector(
           child: Container(
             margin: EdgeInsets.only(right: 10),
