@@ -18,6 +18,21 @@ class HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Color(0xff053F5E),
       appBar: appBarW(),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: Container(
+            decoration: BoxDecoration(
+              color: Color(0xff107163),
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Center(
+              child: Icon(
+                Icons.calendar_today,
+                color: Colors.white,
+                size: 25,
+              ),
+            ),
+          )),
       body: Container(
         decoration: BoxDecoration(
           color: Colors.grey[100],
@@ -170,7 +185,7 @@ class HomePageState extends State<HomePage> {
                 children: [
                   Container(
                     child: Text(
-                      'Top Rated',
+                      'Our Doctor ',
                       style: TextStyle(
                         color: Color(0xff363636),
                         fontSize: 20,

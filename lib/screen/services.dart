@@ -34,52 +34,52 @@ class ServicesDetailState extends State<ServicesDetail> {
                 child: ListView(
                   children: [
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Fred Mask",
-                      "Heart surgen",
-                      "4.1",
+                      "images/tooth.png",
+                      "Ticketing, Checkup & Counseling",
+                      "Price",
+                      "300",
                       "",
                     ),
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "images/tooth.png",
+                      "X-Ray",
+                      "Price",
+                      "300",
                       "",
                     ),
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "images/tooth.png",
+                      "Tooth Colored (Composite) Filling",
+                      "Price",
+                      "2000",
                       "",
                     ),
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "images/tooth.png",
+                      "Scaling & Polishing",
+                      "Price",
+                      "1200",
                       "",
                     ),
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "images/tooth.png",
+                      "Small Filling",
+                      "Price",
+                      "1000",
                       "",
                     ),
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "images/tooth.png",
+                      "Medium Filling",
+                      "Price",
+                      "1000",
                       "",
                     ),
                     demoTopRatedDr(
-                      "images/doctor.png",
-                      "Dr. Stella Kane",
-                      "Bone Specialist",
-                      "4.2",
+                      "images/tooth.png",
+                      "Medium Filling",
+                      "Price",
+                      "1000",
                       "",
                     ),
                   ],
@@ -114,7 +114,7 @@ class ServicesDetailState extends State<ServicesDetail> {
       width: 100,
       margin: EdgeInsets.only(right: 15),
       decoration: BoxDecoration(
-        color: Color(0xff107163),
+        color: Colors.white,
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -181,7 +181,7 @@ class ServicesDetailState extends State<ServicesDetail> {
             Container(
               margin: EdgeInsets.only(left: 20),
               height: 90,
-              width: 50,
+              width: 60,
               child: Image.asset(img),
             ),
             Container(
@@ -196,7 +196,7 @@ class ServicesDetailState extends State<ServicesDetail> {
                       name,
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 17,
+                        fontSize: 15,
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w700,
                       ),
@@ -207,7 +207,7 @@ class ServicesDetailState extends State<ServicesDetail> {
                     child: Row(
                       children: [
                         Text(
-                          name,
+                          speciality,
                           style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'Poppins',
@@ -221,7 +221,7 @@ class ServicesDetailState extends State<ServicesDetail> {
                             children: [
                               Container(
                                 child: Text(
-                                  "Rating: ",
+                                  " ",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 12,
@@ -233,7 +233,7 @@ class ServicesDetailState extends State<ServicesDetail> {
                                 child: Text(
                                   rating,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 12,
                                     fontFamily: 'Poppins',
                                   ),
