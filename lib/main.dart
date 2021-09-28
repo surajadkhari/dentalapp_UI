@@ -19,7 +19,7 @@ class Myapp extends StatelessWidget {
         "/welcomescreen": (context) => WelcomeScreen(),
         "/registration_screen": (context) => RegistrationScreen(),
         "/appointmentdate": (context) => appointmentDate(),
-      },
+      },  
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           primaryColor: Color(

@@ -20,9 +20,11 @@ class LoginSingupbutton extends StatelessWidget {
       height: size.width * 0.2,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-            primary: Colors.teal,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40))),
+          primary: Colors.teal,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+          ),
+        ),
         onPressed: onpressed,
         child: Text(
           text,
