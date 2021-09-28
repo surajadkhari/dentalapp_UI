@@ -1,5 +1,6 @@
+import 'package:dentalapp_UI/screen/appointment.dart';
 import 'package:dentalapp_UI/screen/home_pagey.dart';
-import 'package:dentalapp_UI/screen/homepage.dart';
+
 import 'package:flutter/material.dart';
 
 import 'screen/registration_screen.dart';
@@ -16,10 +17,15 @@ class Myapp extends StatelessWidget {
       routes: {
         "/home": (context) => HomePage(),
         "/welcomescreen": (context) => WelcomeScreen(),
-        "/registration_screen": (context) => RegistrationScreen()
+        "/registration_screen": (context) => RegistrationScreen(),
+        "/appointmentdate": (context) => appointmentDate(),
       },
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Color(0xff053F5E)),
+      theme: ThemeData(
+          primaryColor: Color(
+            0xff053F5E,
+          ),
+          appBarTheme: AppBarTheme(backgroundColor: Color(0xff053F5E))),
       home: WelcomeScreen(),
     );
   }

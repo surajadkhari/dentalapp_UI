@@ -1,5 +1,11 @@
+import 'dart:convert';
+
+import 'package:dentalapp_UI/const/const.dart';
 import 'package:dentalapp_UI/screen/doctordetail.dart';
 import 'package:dentalapp_UI/screen/services.dart';
+
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -8,8 +14,45 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
+  // userName() async {
+  //   final url =
+  //       'https://dentalapp-cb238-default-rtdb.firebaseio.com/users.json';
+  //   var response = await http.get(Uri.parse(url));
+  //   var responseData = jsonDecode(response.body);
+  //   var person;
+  //   (responseData as Map).forEach((key, value) {
+  //     if (value['UserID'] == '6ZqAhcLazHPCKdWivhffOF6AIU42')
+  //       person = value['FullName'];
+  //   });
+  //   print(person);
+  //   return print(response.body);
+  // }
+
+  FirebaseAuth _auth;
+  var arg;
+  var uname;
+  var uid;
+
+  void initState() {
+    // TODO: implement initState
+    Firebase.initializeApp().whenComplete(() {
+      _auth = FirebaseAuth.instance;
+    });
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    arg = ModalRoute.of(context).settings.arguments as Map;
+    // print(arg);
+    if (arg != null) {
+      uname = arg['uname'];
+      uid = arg['uid'];
+    } else {
+      uname = 'Not Provided';
+    }
+
     return initScreen();
   }
 
@@ -19,7 +62,11 @@ class HomePageState extends State<HomePage> {
       backgroundColor: Color(0xff053F5E),
       appBar: appBarW(),
       floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, "/appointmentdate",
+                arguments: {'uid': uid});
+            // userName();
+          },
           child: Container(
             decoration: BoxDecoration(
               color: Color(0xff107163),
@@ -48,7 +95,7 @@ class HomePageState extends State<HomePage> {
             Container(
               margin: EdgeInsets.only(top: 5, left: 20),
               child: Text(
-                "Hi, Surat",
+                "Hi $uname",
                 style: TextStyle(
                   color: Color(0xff363636),
                   fontSize: 25,
@@ -69,9 +116,20 @@ class HomePageState extends State<HomePage> {
               ),
             ),
             Container(
-              margin: EdgeInsets.only(top: 10, left: 20, right: 20),
+              margin: EdgeInsets.only(top: 3, left: 20),
+              child: Text(
+                "Our Services Hour",
+                style: TextStyle(
+                  color: Color(0xff363636),
+                  fontSize: 20,
+                  fontFamily: 'Poppins',
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(10),
               width: size.width,
-              height: 60,
+              height: 100,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(5),
@@ -84,41 +142,92 @@ class HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              // child: Row(
+              //   children: [
+              //     Expanded(
+              //       flex: 4,
+              //       child: Container(
+              //         margin: EdgeInsets.only(left: 10, right: 10),
+              //         child: TextField(
+              //           maxLines: 1,
+              //           autofocus: false,
+              //           style:
+              //               TextStyle(color: Color(0xff107163), fontSize: 20),
+              //           decoration: InputDecoration(
+              //             border: InputBorder.none,
+              //             hintText: 'Search..',
+              //           ),
+              //           cursorColor: Color(0xff107163),
+              //         ),
+              //       ),
+              //     ),
+              //     Expanded(
+              //       flex: 1,
+              //       child: Container(
+              //         decoration: BoxDecoration(
+              //           color: Color(0xff107163),
+              //           borderRadius: BorderRadius.circular(5),
+              //         ),
+              //         child: Center(
+              //           child: Icon(
+              //             Icons.search,
+              //             color: Colors.white,
+              //             size: 25,
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
               child: Row(
                 children: [
                   Expanded(
-                    flex: 4,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10, right: 10),
-                      child: TextField(
-                        maxLines: 1,
-                        autofocus: false,
-                        style:
-                            TextStyle(color: Color(0xff107163), fontSize: 20),
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          hintText: 'Search..',
-                        ),
-                        cursorColor: Color(0xff107163),
+                      margin: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(2),
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "SUN-MON",
+                            style: kdateTextstyle,
+                          ),
+                          Text(
+                            "9:00 AM -6:00 PM",
+                            style: kdateTextstyle,
+                          ),
+                        ],
                       ),
                     ),
                   ),
                   Expanded(
-                    flex: 1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xff107163),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.search,
-                          color: Colors.white,
-                          size: 25,
-                        ),
-                      ),
+                      child: Container(
+                    margin: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(2),
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.teal,
+                      borderRadius: BorderRadius.circular(12),
                     ),
-                  ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "SATURDAY",
+                          style: kdateTextstyle,
+                        ),
+                        Text(
+                          "9:00 AM -1:00 PM",
+                          style: kdateTextstyle,
+                        ),
+                      ],
+                    ),
+                  ))
                 ],
               ),
             ),
@@ -281,15 +390,6 @@ class HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        GestureDetector(
-          child: Container(
-            margin: EdgeInsets.only(right: 5),
-            child: Image.network(
-              "https://ichef.bbci.co.uk/news/400/cpsprodpb/18309/production/_109218099_gettyimages-803015182.jpg",
-              width: 50,
-            ),
-          ),
-        )
       ],
     );
   }

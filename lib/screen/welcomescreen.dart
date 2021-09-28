@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:dentalapp_UI/components/button.dart';
+import 'package:dentalapp_UI/components/inputfield.dart';
+import 'package:dentalapp_UI/const/const.dart';
 import 'package:flutter/material.dart';
 
-import 'const/const.dart';
 import 'package:http/http.dart' as http;
 
 class WelcomeScreen extends StatelessWidget {
@@ -84,7 +86,11 @@ class Welcome extends StatelessWidget {
             print(response.body);
             var resposeData = jsonDecode(response.body);
             if (resposeData['idToken'] != null) {
-              Navigator.pushNamed(context, "/home");
+              print(resposeData['idToken']);
+              Navigator.pushNamed(context, "/home", arguments: {
+                "uname": resposeData['displayName'],
+                'uid': resposeData['localId']
+              });
             }
           },
         ),
@@ -92,83 +98,12 @@ class Welcome extends StatelessWidget {
           height: 10,
         ),
         LoginSingupbutton(
-          text: "SING UP",
-          onpressed: () {},
+          text: "SIGN UP",
+          onpressed: () {
+            Navigator.pushNamed(context, "/registration_screen");
+          },
         ),
       ],
-    );
-  }
-}
-
-class InputField extends StatelessWidget {
-  final String hintText;
-  final IconData iconData;
-  final bool isPassword;
-  final ValueChanged<String> onChanged;
-
-  InputField({this.hintText, this.iconData, this.onChanged, this.isPassword});
-  @override
-  Widget build(BuildContext context) {
-    return TextFieldContainer(
-      child: TextField(
-        obscureText: isPassword,
-        keyboardType: TextInputType.visiblePassword,
-        onChanged: onChanged,
-        decoration: InputDecoration(
-            border: InputBorder.none,
-            icon: Icon(iconData),
-            hintText: hintText,
-            hintStyle: KinputTTexTstle),
-      ),
-    );
-  }
-}
-
-class TextFieldContainer extends StatelessWidget {
-  final Widget child;
-
-  TextFieldContainer({this.child});
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width * 0.9,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      decoration: BoxDecoration(
-        color: Colors.teal[200],
-        borderRadius: BorderRadius.circular(29),
-      ),
-      child: child,
-    );
-  }
-}
-
-class LoginSingupbutton extends StatelessWidget {
-  final String text;
-  final Color color;
-  final Function onpressed;
-  LoginSingupbutton({this.color, this.onpressed, this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(80),
-      ),
-      width: size.width * 0.9,
-      height: size.width * 0.2,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-            primary: Colors.teal,
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40))),
-        onPressed: onpressed,
-        child: Text(
-          text,
-          style: KWellogin_singupTTexTstle,
-        ),
-      ),
     );
   }
 }

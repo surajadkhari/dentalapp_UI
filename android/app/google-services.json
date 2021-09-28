@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "475880932674",
+    "project_id": "dentalapp-cb238",
+    "storage_bucket": "dentalapp-cb238.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475880932674:android:00dfef716d8e08a0d034db",
+        "android_client_info": {
+          "package_name": "com.surat.dentalapp_UI"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475880932674-d9igoa25q693ml8upool3nb9chup6c32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrtDVNpj2WgYPli1HlCQO_bYAKlzuZZLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475880932674-d9igoa25q693ml8upool3nb9chup6c32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
